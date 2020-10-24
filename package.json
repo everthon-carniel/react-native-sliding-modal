@@ -1,0 +1,30 @@
+{
+  "name": "react-native-sliding-modal",
+  "version": "1.0.0",
+  "description": "A dynamic and customizable sliding modal developed in react-native.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/everthon-carniel/react-native-sliding-modal.git"
+  },
+  "keywords": [
+    "modal",
+    "react-native",
+    "slide",
+    "swipeable",
+    "draggable"
+  ],
+  "author": "react-native-sliding-modal <react.native.sliding.modal@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/everthon-carniel/react-native-sliding-modal/issues"
+  },
+  "homepage": "https://github.com/everthon-carniel/react-native-sliding-modal#readme",
+  "dependencies": {
+    "react-native-gesture-handler": "^1.8.0",
+    "styled-components": "^5.2.0"
+  }
+}
