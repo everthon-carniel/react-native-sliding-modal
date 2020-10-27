@@ -1,17 +1,22 @@
 import React, { useEffect } from 'react';
 import { Modal, Animated, useWindowDimensions } from 'react-native';
-import { PanGestureHandler, State } from 'react-native-gesture-handler';
+import {
+  gestureHandlerRootHOC,
+  GestureHandlerRootView,
+  PanGestureHandler,
+  State,
+} from 'react-native-gesture-handler';
 
 import {
   container,
   Content,
   DraggableArea,
   MinimizeIcon,
-  ModalWrapper,
   ScrollView,
-} from './ContentsModal.styles';
+  ModalView,
+} from './styles';
 
-const ContentsModal = ({ children }) => {
+export default SlidingModal = ({ children }) => {
   const { height } = useWindowDimensions();
   const translateY = new Animated.Value(height);
 
@@ -46,37 +51,41 @@ const ContentsModal = ({ children }) => {
     }
   };
 
+  const GestureHandlerRootHOC = ({ children }) => (
+    gestureHandlerRootHOC(() => <ModalView>{children}</ModalView>)
+  );
+
   return (
-    <ModalWrapper>
-      <Modal>
-        <Animated.View
-          height={height}
-          style={[container, {
-            transform: [{
-              translateY: translateY.interpolate({
-                inputRange: [10, height],
-                outputRange: [10, height],
-                extrapolate: 'clamp',
-              }),
-            }],
-          }]}
-        >
-          <ScrollView
-            overScrollMode='never'
-            showsVerticalScrollIndicator={false}
+    <GestureHandlerRootView>
+      <Modal transparent={true}>
+        <GestureHandlerRootHOC>
+          <Animated.View
+            height={height}
+            style={[container, {
+              transform: [{
+                translateY: translateY.interpolate({
+                  inputRange: [10, height],
+                  outputRange: [10, height],
+                  extrapolate: 'clamp',
+                }),
+              }],
+            }]}
           >
-            <PanGestureHandler
-              onGestureEvent={animatedEvent}
-              onHandlerStateChange={onHandlerStateChanged}
+            <ScrollView
+              overScrollMode='never'
+              showsVerticalScrollIndicator={false}
             >
-              <DraggableArea><MinimizeIcon /></DraggableArea>
-            </PanGestureHandler>
-            <Content>{children}</Content>
-          </ScrollView>
-        </Animated.View>
+              <PanGestureHandler
+                onGestureEvent={animatedEvent}
+                onHandlerStateChange={onHandlerStateChanged}
+              >
+                <DraggableArea><MinimizeIcon /></DraggableArea>
+              </PanGestureHandler>
+              <Content>{children}</Content>
+            </ScrollView>
+          </Animated.View>
+        </GestureHandlerRootHOC>
       </Modal>
-    </ModalWrapper>
+    </GestureHandlerRootView>
   );
 };
-
-export default ContentsModal;

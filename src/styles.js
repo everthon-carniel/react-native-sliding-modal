@@ -35,7 +35,6 @@ export const Content = styled.View`
   flex: 1;
 `;
 
-export const ModalWrapper = styled.View`
+export const ModalView = styled.View`
   flex: 1;
-  background-color: red;
 `;
