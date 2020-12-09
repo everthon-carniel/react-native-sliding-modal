@@ -1,6 +1,6 @@
 {
   "name": "react-native-sliding-modal",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A dynamic and customizable sliding modal developed in react-native.",
   "main": "src/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/everthon-carniel/react-native-sliding-modal#readme",
   "dependencies": {
-    "react-native-gesture-handler": "^1.8.0",
-    "styled-components": "^5.2.0"
+    "prop-types": "^15.7.2",
+    "react-native-gesture-handler": "^1.8.0"
   }
 }
