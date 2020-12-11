@@ -1,6 +1,6 @@
 {
   "name": "react-native-sliding-modal",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A dynamic and customizable sliding modal developed in react-native.",
   "main": "src/index.js",
   "scripts": {
